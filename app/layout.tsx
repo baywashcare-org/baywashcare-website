@@ -1,4 +1,5 @@
-import { Geist, Geist_Mono, DM_Sans, Raleway } from "next/font/google"
+import type { Metadata } from "next"
+import { Geist_Mono, DM_Sans, Raleway } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -12,6 +13,17 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: "BayWashCare — Coming Soon",
+  description:
+    "BayWashCare is bringing professional car cleaning and care management to your doorstep. Our app is coming soon.",
+  openGraph: {
+    title: "BayWashCare — Coming Soon",
+    description: "Professional car cleaning and care. Our app is coming soon.",
+    type: "website",
+  },
+}
 
 export default function RootLayout({
   children,

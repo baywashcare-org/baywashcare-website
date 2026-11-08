@@ -7,6 +7,22 @@ import { useId } from "react"
  */
 export function CarIllustration({ className }: { className?: string }) {
   const uid = useId().replace(/:/g, "")
+  return <CarSvg uid={uid} className={className} />
+}
+
+/**
+ * Hook-free drawing, so it can also render outside React (e.g. the Open Graph
+ * image). `uid` keeps gradient ids unique when several cars are on a page.
+ */
+export function CarSvg({
+  uid,
+  className,
+  style,
+}: {
+  uid: string
+  className?: string
+  style?: React.CSSProperties
+}) {
   const id = (name: string) => `${uid}-${name}`
   const url = (name: string) => `url(#${id(name)})`
 
@@ -16,6 +32,7 @@ export function CarIllustration({ className }: { className?: string }) {
     <svg
       viewBox="0 0 320 150"
       className={className}
+      style={style}
       aria-hidden
       focusable="false"
     >

@@ -15,7 +15,10 @@ export const site = {
   url: resolveSiteUrl(),
   title: "BayWashCare — Coming Soon",
   description:
-    "BayWashCare is bringing professional car cleaning and care management to your doorstep. Our app is coming soon.",
+    "BayWashCare brings professional car cleaning and care to your doorstep, booked from one simple app. Our app is coming soon.",
+  // Short version for link previews (WhatsApp, X, LinkedIn).
+  shareDescription:
+    "Doorstep car care, booked from one simple app. Coming soon.",
   email: "contact@baywashcare.com",
   phoneDisplay: "+91 97517 17979",
   phoneHref: "tel:+919751717979",

@@ -24,7 +24,7 @@ This repo is the company website. Current phase: a simple **"Coming Soon" landin
 | Icons / theming | lucide-react, next-themes |
 | Package manager | npm |
 | Formatting / linting | Prettier (with Tailwind plugin), ESLint |
-| Hosting | Vercel (site URL via `NEXT_PUBLIC_SITE_URL`, see `.env.example`) |
+| Hosting | Vercel (site URL via `NEXT_PUBLIC_SITE_URL`, see `.env.example`); Web Analytics + Speed Insights in `app/layout.tsx` |
 | Database | Neon Postgres (`neon.ts`), `pg` + `@vercel/functions` pool in `lib/db.ts`; SQL migrations in `db/migrations/` |
 | Backend | Launch waitlist only (server action in `app/actions.ts`); full backend TBD |
 

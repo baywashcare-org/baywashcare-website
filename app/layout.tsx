@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Geist_Mono, DM_Sans, Raleway } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: site.title,
-    description: "Professional car cleaning and care. Our app is coming soon.",
+    description: site.shareDescription,
     url: "/",
     siteName: site.name,
     locale: "en_IN",
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: site.title,
-    description: "Professional car cleaning and care. Our app is coming soon.",
+    description: site.shareDescription,
   },
   robots: { index: true, follow: true },
 }
@@ -65,6 +67,9 @@ export default function RootLayout({
       <body>
         {/* The landing page is designed dark-only; keep the theme fixed. */}
         <ThemeProvider forcedTheme="dark">{children}</ThemeProvider>
+        {/* Vercel Web Analytics + Speed Insights (only report on Vercel). */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

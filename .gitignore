@@ -93,3 +93,4 @@ CLAUDE.local.md
 *.bak
 .eslintcache
 .stylelintcache
+.neon

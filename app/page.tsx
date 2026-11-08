@@ -1,101 +1,79 @@
-import { BellRing, Mail, Phone } from "lucide-react"
+import { Mail, Phone } from "lucide-react"
 
-import { HeroSceneLoader } from "@/components/hero-scene-loader"
+import { AppPreview } from "@/components/app-preview"
+import { WaitlistForm } from "@/components/waitlist-form"
 import { site } from "@/lib/site"
 
-const EMAIL = site.email
-const PHONE_DISPLAY = site.phoneDisplay
-const PHONE_HREF = site.phoneHref
+const footerLink =
+  "inline-flex items-center gap-1.5 transition hover:text-cyan-200 focus-visible:text-cyan-200 focus-visible:outline-none"
 
-const contactLink =
-  "inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-cyan-200 focus-visible:text-cyan-200 focus-visible:outline-none"
+const reveal =
+  "motion-safe:animate-in motion-safe:fill-mode-both motion-safe:duration-700 motion-safe:fade-in motion-safe:slide-in-from-bottom-3"
 
 export default function Page() {
   return (
-    <main className="relative isolate flex min-h-svh flex-col overflow-hidden bg-[#04070d] text-white">
-      {/* background glow */}
+    <main className="relative isolate flex min-h-svh flex-col overflow-hidden bg-[#050a14] text-white">
+      {/* diagonal two-tone backdrop */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_75%_45%,rgba(56,212,255,0.18),transparent_70%),radial-gradient(ellipse_50%_40%_at_0%_100%,rgba(21,150,201,0.14),transparent_70%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(160deg,#0a3550_0%,#0b2740_45%,#071a2c_100%)] [clip-path:polygon(0_46%,100%_34%,100%_100%,0_100%)] lg:[clip-path:polygon(0_22%,58%_58%,100%_34%,100%_100%,0_100%)]"
       />
-      {/* faint grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] [background-size:64px_64px] opacity-[0.05]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_55%_50%_at_78%_50%,rgba(56,212,255,0.18),transparent_70%)]"
       />
 
       {/* nav */}
-      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 md:py-7">
-        <span className="font-heading text-xl font-bold tracking-tight">
+      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-6 sm:px-8 md:py-8">
+        <span className="font-heading text-2xl font-extrabold tracking-tight">
           Bay<span className="text-cyan-300">Wash</span>Care
         </span>
         <a
-          href={`mailto:${EMAIL}`}
-          className="rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-sm text-white/80 backdrop-blur transition hover:border-cyan-300/60 hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:outline-none"
+          href={`mailto:${site.email}`}
+          className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-cyan-300/60 hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:outline-none"
         >
-          Contact
+          Say hello
         </a>
       </header>
 
       {/* hero */}
-      <section className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-2 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
-        <div className="max-w-xl pt-6 lg:pt-0">
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-cyan-300/25 bg-cyan-300/[0.08] px-3.5 py-1.5 text-xs font-medium tracking-[0.14em] text-cyan-200 uppercase motion-safe:animate-in motion-safe:duration-700 motion-safe:fade-in motion-safe:slide-in-from-bottom-2">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full rounded-full bg-cyan-300 opacity-75 motion-safe:animate-ping" />
-              <span className="relative inline-flex size-2 rounded-full bg-cyan-300" />
-            </span>
-            Coming soon
-          </span>
-
-          <h1 className="mt-6 font-heading text-[2.75rem] leading-[1.02] font-extrabold tracking-tight text-balance motion-safe:animate-in motion-safe:delay-100 motion-safe:duration-700 motion-safe:fill-mode-both motion-safe:fade-in motion-safe:slide-in-from-bottom-3 sm:text-6xl lg:text-7xl">
-            Car care,{" "}
-            <span className="bg-gradient-to-r from-cyan-200 via-cyan-300 to-sky-500 bg-clip-text text-transparent">
-              made spotless.
+      <section className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-14 px-5 pt-4 pb-12 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:gap-6 lg:py-0">
+        <div>
+          <h1
+            className={`font-heading text-[4.5rem] leading-[0.9] tracking-tight sm:text-8xl xl:text-[9rem] ${reveal}`}
+          >
+            <span className="block font-light">Coming</span>
+            <span className="block bg-gradient-to-r from-cyan-200 via-cyan-300 to-sky-400 bg-clip-text pb-2 font-extrabold text-transparent">
+              Soon.
             </span>
           </h1>
 
-          <p className="mt-5 max-w-md text-base leading-relaxed text-white/70 motion-safe:animate-in motion-safe:delay-200 motion-safe:duration-700 motion-safe:fill-mode-both motion-safe:fade-in motion-safe:slide-in-from-bottom-3 sm:text-lg">
-            BayWashCare is bringing professional car cleaning and care
-            management to your doorstep. Our app is on the way.
+          <p
+            className={`mt-6 max-w-md text-base leading-relaxed text-pretty text-white/70 sm:text-lg ${reveal} motion-safe:delay-100`}
+          >
+            Doorstep car care, booked from one simple app.
           </p>
 
-          <div className="mt-8 motion-safe:animate-in motion-safe:delay-300 motion-safe:duration-700 motion-safe:fill-mode-both motion-safe:fade-in motion-safe:slide-in-from-bottom-3">
-            <a
-              href={`mailto:${EMAIL}?subject=Notify%20me%20about%20BayWashCare`}
-              className="group inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3.5 text-sm font-semibold text-[#04070d] shadow-[0_0_0_1px_rgba(165,243,252,0.5),0_8px_30px_-4px_rgba(56,212,255,0.55)] transition hover:-translate-y-0.5 hover:bg-cyan-200 hover:shadow-[0_0_0_1px_rgba(165,243,252,0.7),0_12px_40px_-4px_rgba(56,212,255,0.7)] focus-visible:ring-2 focus-visible:ring-cyan-200 focus-visible:ring-offset-2 focus-visible:ring-offset-[#04070d] focus-visible:outline-none"
-            >
-              <BellRing
-                aria-hidden
-                className="size-4 transition group-hover:rotate-12"
-              />
-              Get notified at launch
-            </a>
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <a href={`mailto:${EMAIL}`} className={contactLink}>
-                <Mail aria-hidden className="size-4" />
-                {EMAIL}
-              </a>
-              <a href={PHONE_HREF} className={contactLink}>
-                <Phone aria-hidden className="size-4" />
-                {PHONE_DISPLAY}
-              </a>
-            </div>
-          </div>
+          <WaitlistForm className={`mt-8 ${reveal} motion-safe:delay-200`} />
         </div>
 
-        <div className="relative -mx-5 h-[340px] motion-safe:animate-in motion-safe:delay-200 motion-safe:duration-1000 motion-safe:fill-mode-both motion-safe:fade-in sm:mx-0 sm:h-[440px] lg:h-[min(640px,calc(100svh-10rem))]">
-          {/* soft halo behind the car */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-[15%] top-1/2 h-1/2 -translate-y-1/2 rounded-full bg-cyan-400/20 blur-3xl"
-          />
-          <HeroSceneLoader />
-        </div>
+        <AppPreview
+          className={`${reveal} motion-safe:delay-200 motion-safe:duration-1000`}
+        />
       </section>
 
-      <footer className="mx-auto w-full max-w-7xl px-5 py-6 text-xs text-white/50 sm:px-8">
-        © {new Date().getFullYear()} BayWashCare. All rights reserved.
+      <footer className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <p>© {new Date().getFullYear()} BayWashCare. All rights reserved.</p>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <a href={`mailto:${site.email}`} className={footerLink}>
+            <Mail aria-hidden className="size-3.5" />
+            {site.email}
+          </a>
+          <a href={site.phoneHref} className={footerLink}>
+            <Phone aria-hidden className="size-3.5" />
+            {site.phoneDisplay}
+          </a>
+        </div>
       </footer>
     </main>
   )

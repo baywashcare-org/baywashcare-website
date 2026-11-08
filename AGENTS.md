@@ -25,7 +25,8 @@ This repo is the company website. Current phase: a simple **"Coming Soon" landin
 | Package manager | npm |
 | Formatting / linting | Prettier (with Tailwind plugin), ESLint |
 | Hosting | Vercel (site URL via `NEXT_PUBLIC_SITE_URL`, see `.env.example`) |
-| Backend | TBD (after frontend) |
+| Database | Neon Postgres (`neon.ts`), `pg` + `@vercel/functions` pool in `lib/db.ts`; SQL migrations in `db/migrations/` |
+| Backend | Launch waitlist only (server action in `app/actions.ts`); full backend TBD |
 
 ## Commands
 
@@ -37,6 +38,7 @@ npm run start        # serve production build
 npm run lint         # ESLint
 npm run typecheck    # tsc --noEmit
 npm run format       # Prettier
+npm run db:migrate   # apply db/migrations/*.sql (uses DATABASE_URL_UNPOOLED)
 ```
 
 ## Conventions

@@ -212,7 +212,8 @@ function Bubbles() {
         metalness={0}
         iridescence={1}
         iridescenceIOR={1.3}
-        iridescenceThicknessRange={[200, 800]}
+        iridescenceThicknessMinimum={200}
+        iridescenceThicknessMaximum={800}
         envMapIntensity={3}
       />
     </instancedMesh>

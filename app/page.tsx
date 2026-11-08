@@ -1,10 +1,11 @@
 import { BellRing, Mail, Phone } from "lucide-react"
 
 import { HeroSceneLoader } from "@/components/hero-scene-loader"
+import { site } from "@/lib/site"
 
-const EMAIL = "contact@baywashcare.com"
-const PHONE_DISPLAY = "+91 97517 17979"
-const PHONE_HREF = "tel:+919751717979"
+const EMAIL = site.email
+const PHONE_DISPLAY = site.phoneDisplay
+const PHONE_HREF = site.phoneHref
 
 const contactLink =
   "inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-cyan-200 focus-visible:text-cyan-200 focus-visible:outline-none"

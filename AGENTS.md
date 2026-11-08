@@ -24,7 +24,7 @@ This repo is the company website. Current phase: a simple **"Coming Soon" landin
 | Icons / theming | lucide-react, next-themes |
 | Package manager | npm |
 | Formatting / linting | Prettier (with Tailwind plugin), ESLint |
-| Hosting | TBD |
+| Hosting | Vercel (site URL via `NEXT_PUBLIC_SITE_URL`, see `.env.example`) |
 | Backend | TBD (after frontend) |
 
 ## Commands
